@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nearby Clinics | AI Skin Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <!-- Header Navigation -->
+  <header>
+    <nav>
+      <div class="nav-left">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle-wrapper">
+          <label class="switch">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <!-- Navigation Links -->
+        <a href="/">Home</a>
+        <a href="/appointments">Appointments</a>
+        <a href="/clinics" class="active">Nearby Clinics</a>
+        <a href="/reports">Reports</a>
+        <a href="/tips">Skin Care Tips</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Auth Button -->
+  <div class="auth-section">
+    <button id="auth-trigger" class="auth-btn">Sign In / Sign Up</button>
+  </div>
+
+  <!--  Nearby Clinics Section -->
+  <main class="container">
+    <h1>🏥 Nearby Skin Clinics</h1>
+    <p>Find trusted dermatology clinics near you for quick consultations and treatment.</p>
+
+    <div class="clinic-list">
+      {% for clinic in clinics %}
+      <div class="clinic-card">
+        <h2>{{ clinic.name }}</h2>
+        <p><strong>📍 Address:</strong> {{ clinic.address }}</p>
+        <p><strong>📞 Contact:</strong> {{ clinic.contact }}</p>
+        <p><strong>🕒 Hours:</strong> {{ clinic.timing }}</p>
+        <a href="https://www.google.com/maps/search/{{ clinic.name | urlencode }}" target="_blank" class="btn map-btn">📍 View on Map</a>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+
+  <!--  Floating Chatbot -->
+  <div id="chatbot-widget">
+    <div id="chat-icon">💬</div>
+    <div id="chat-popup">
+      <div id="chat-header">
+        AI Assistant
+        <span id="close-chat">&times;</span>
+      </div>
+      <div id="chat-box"></div>
+      <div id="chat-input">
+        <input type="text" id="user-input" placeholder="Type a message..." />
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!--  Auth Modal -->
+  <div id="auth-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal">&times;</span>
+
+      <!-- Sign Up Form -->
+      <div id="signup-form">
+        <h2>Sign Up</h2>
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="password" placeholder="Password" required />
+        <button class="btn signup-btn">Create Account</button>
+        <p class="switch-text">
+          Already have an account? <a href="#" id="show-login">Sign In</a>
+        </p>
+      </div>
+
+      <!-- Sign In Form -->
+      <div id="login-form" style="display: none;">
+        <h2>Sign In</h2>
+        <input type="email" placeholder="Email Address" required />
+        <input type="password" placeholder="Password" required />
+        <button class="btn login-btn">Login</button>
+        <p class="switch-text">
+          Don’t have an account? <a href="#" id="show-signup">Sign Up</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>

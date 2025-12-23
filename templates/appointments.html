@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Book an Appointment | AI Skin Disease Detector</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<!--Navigation -->
+<header>
+<nav>
+<div class="nav-left">
+<!-- Theme Toggle -->
+<div class="theme-toggle-wrapper">
+<label class="switch">
+<input type="checkbox" id="theme-toggle">
+<span class="slider round"></span>
+</label>
+</div>
+<!-- Navigation Links -->
+<a href="{{ url_for('home') }}">Home</a>
+<a href="{{ url_for('appointments') }}" class="active">Appointments</a>
+<a href="{{ url_for('clinics') }}">Nearby Clinics</a>
+<a href="{{ url_for('reports') }}">Reports</a>
+<a href="{{ url_for('tips') }}">Skin Care Tips</a>
+<a href="{{ url_for('about') }}">About</a>
+<a href="{{ url_for('contact') }}">Contact</a>
+</div>
+</nav>
+</header>
+
+<!-- Sign In / Sign Up Button -->
+<div class="auth-section">
+<button class="auth-btn" id="auth-trigger">Sign In / Sign Up</button>
+</div>
+
+<main class="appointment-page">
+<h1>🩺 Book a Dermatologist Appointment</h1>
+<p class="subtitle">Schedule a consultation with trusted skin specialists near you.</p>
+
+<!--Appointment Form -->
+<form id="appointment-form">
+  <label for="name">Full Name</label>
+  <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+  
+  <label for="email">Email Address</label>
+  <input type="email" id="email" name="email" placeholder="Enter your email" required>
+  
+  <label for="date">Preferred Date</label>
+  <input type="date" id="date" name="date" required>
+  
+  <label for="time">Preferred Time</label>
+  <input type="time" id="time" name="time" required>
+  
+  <label for="clinic">Choose Clinic</label>
+  <select id="clinic" name="clinic" required>
+    <option value="">Select a nearby dermatologist</option>
+    <option> Dermacare Jaipur, C-Scheme</option>
+    <option>Skin Clinic Jaipur MI-Road</option>
+    <option>Apollo Dermatology Center, Tonk Road</option>
+    <option>Max Healthcare - Dermatology, Jagatpura</option>
+    <option>Glowderma Skin & Hair Clinic, Bani Park</option>
+    <option>Fortis Hospital - Dermatology Wing, Chankyapuri</option>
+  </select>
+  
+  <button type="submit" class="btn">Book Appointment</button>
+</form>
+
+<!-- Confirmation Message -->
+<div id="confirmation" class="hidden">
+  <h2>✅ Appointment Booked!</h2>
+  <p>We'll send you a confirmation email shortly.</p>
+</div>
+</main>
+
+<!-- Floating Chatbot -->
+<div id="chatbot-widget">
+<div id="chat-icon">💬</div>
+<div id="chat-popup">
+<div id="chat-header">
+AI Assistant
+<span id="close-chat">&times;</span>
+</div>
+<div id="chat-box"></div>
+<div id="chat-input">
+<input type="text" id="user-input" placeholder="Type a message..." />
+<button id="send-btn">Send</button>
+</div>
+</div>
+</div>
+
+<!-- Script -->
+<script>
+const form = document.getElementById('appointment-form');
+const confirmation = document.getElementById('confirmation');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  form.classList.add('hidden');
+  confirmation.classList.remove('hidden');
+});
+</script>
+
+<script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>

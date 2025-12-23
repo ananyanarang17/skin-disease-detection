@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reports | AI Skin Disease Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Header Navigation -->
+  <header>
+    <nav>
+      <div class="nav-left">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle-wrapper">
+          <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <!--  Navigation Links -->
+        <a href="/">Home</a>
+        <a href="/appointments">Appointments</a>
+        <a href="/clinics">Nearby Clinics</a>
+        <a href="/reports" class="active">Reports</a>
+        <a href="/tips">Skin Care Tips</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Auth Button -->
+  <div class="auth-section">
+    <button id="auth-trigger" class="auth-btn">Sign In / Sign Up</button>
+  </div>
+
+  <!--  Reports Dashboard -->
+  <main class="reports-container">
+    <h1>📊 Health Reports Dashboard</h1>
+    <p class="subtitle">
+      View, manage, and download your AI-generated skin health reports.
+    </p>
+
+    <!--  Dynamic Reports Table -->
+    <section class="report-summary">
+      <h2>Recent Reports</h2>
+      <table class="reports-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Disease</th>
+            <th>Confidence</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for report in reports %}
+          <tr>
+            <td>{{ report.created_at.strftime('%Y-%m-%d') }}</td>
+            <td>{{ report.disease }}</td>
+            <td>{{ report.confidence }}%</td>
+            <td>{{ report.status if report.status else 'Completed' }}</td>
+            <td>
+              <a href="{{ url_for('report', filename=report.image_path, disease=report.disease, confidence=report.confidence) }}" class="download-btn">⬇ Download</a>
+            </td>
+          </tr>
+          {% else %}
+          <tr><td colspan="5">No reports available yet.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+
+    <!--  Report Analytics -->
+    <section class="report-stats">
+      <h2>Overall Progress</h2>
+      <p>
+        Track improvements in your skin condition over time with our AI-powered analytics.
+      </p>
+      <div class="stats-placeholder">
+        <p>📉 Graphs & charts coming soon...</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Chatbot -->
+  <div id="chatbot-widget">
+    <div id="chat-icon">💬</div>
+    <div id="chat-popup">
+      <div id="chat-header">AI Assistant
+        <span id="close-chat">&times;</span>
+      </div>
+      <div id="chat-box"></div>
+      <div id="chat-input">
+        <input type="text" id="user-input" placeholder="Type a message..." />
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Auth Modal -->
+  <div id="auth-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal">&times;</span>
+
+      <!-- Sign Up -->
+      <div id="signup-form">
+        <h2>Sign Up</h2>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="password" placeholder="Password" required>
+        <button class="btn signup-btn">Create Account</button>
+        <p class="switch-text">
+          Already have an account? <a href="#" id="show-login">Sign In</a>
+        </p>
+      </div>
+
+      <!--  Sign In -->
+      <div id="login-form" style="display: none;">
+        <h2>Sign In</h2>
+        <input type="email" placeholder="Email Address" required>
+        <input type="password" placeholder="Password" required>
+        <button class="btn login-btn">Login</button>
+        <p class="switch-text">
+          Don’t have an account? <a href="#" id="show-signup">Sign Up</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>

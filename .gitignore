@@ -1,0 +1,34 @@
+
+# Large datasets (never commit raw data)
+dataset/HAM10000_images_part_*
+dataset/*.csv
+
+# Trained models & weights (too large for GitHub)
+*.h5
+*.keras
+models/*.h5
+models/*.keras
+
+# Temporary files, logs, and NumPy artifacts
+*.npy
+*.log
+
+# Python cache & compiled files
+__pycache__/
+*.pyc
+
+# Jupyter / Google Colab auto-generated files
+.ipynb_checkpoints/
+
+# OS-specific system files
+.DS_Store
+
+# Generated outputs & backup folders
+*.png
+backup_not_for_github/
+
+# Environment variables & local secrets (CRITICAL)
+.env
+
+# Flask instance folder (local runtime data)
+instance/

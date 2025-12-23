@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Chat Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>💬 Talk to Your AI Assistant</h2>
+    <div id="chat-box" style="height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;"></div>
+
+    <input type="text" id="user-input" placeholder="Type your message..." style="width: 70%; padding: 8px;">
+    <button id="send-btn" style="padding: 8px 15px;">Send</button>
+  </div>
+
+  <!-- Link to external JS file -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

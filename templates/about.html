@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - AI SkinCare</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<header>
+  <nav>
+    <div class="nav-left">
+      <!--toggle--> 
+      <div class="theme-toggle-wrapper">
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <!--Navigation Links with Active Highlight-->
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('appointments') }}">Appointments</a>
+        <a href="{{ url_for('clinics') }}">Nearby Clinics</a>
+        <a href="{{ url_for('reports') }}">Reports</a>
+        <a href="{{ url_for('tips') }}">Skin Care Tips</a>
+        <a href="{{ url_for('about') }}" class="active">About</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+    </div>
+  </nav>
+</header>
+
+  <!--Auth Button-->
+  <div class="auth-section">
+    <button id="auth-trigger" class="auth-btn">Sign In / Sign Up</button>
+  </div>
+
+  <!--About Page Content-->
+  <div class="about-container">
+    <h1>About Our Project</h1>
+    <p class="subtitle">Empowering skincare through AI-driven technology and awareness</p>
+
+    <!--Authors-->
+    <section class="authors">
+      <h2>Meet the Creators</h2>
+      <div class="authors-grid">
+        <div class="author-card">
+          <img src="{{ url_for('static', filename='ananya_narang.jpg') }}" alt="Author 1">
+          <h3>Ananya Narang</h3>
+          <p>23FE10ITE00023</p>
+        </div>
+        <div class="author-card">
+          <img src="{{ url_for('static', filename='img/author2.jpg') }}" alt="Author 2">
+          <h3>AUTHOR 2</h3>
+          <p>YAYY</p>
+        </div>
+      </div>
+    </section>
+
+    <!--Mission-->
+    <section class="mission">
+      <h2>Our Mission</h2>
+      <p>
+        Our goal is to make skincare awareness more accessible through technology.
+        By combining AI and dermatological insights, we help users identify potential
+        skin issues early and take the right preventive or corrective measures.
+      </p>
+    </section>
+
+    <!--How It Works-->
+    <section class="how-it-works">
+      <h2>How the Site Works</h2>
+      <ul>
+        <li>🖼️ Upload your skin image — the AI analyzes it using deep learning.</li>
+        <li>📋 Get instant results with detailed condition descriptions and suggestions.</li>
+        <li>📊 Generate downloadable medical reports.</li>
+        <li>📅 Book dermatologist appointments or find nearby clinics.</li>
+        <li>💬 Chat with our AI assistant for skincare guidance and FAQs.</li>
+      </ul>
+    </section>
+
+    <!--Features -->
+    <section class="features">
+      <h2>Main Features</h2>
+      <div class="feature-list">
+        <div>🌞 Tip of the Day</div>
+        <div>🌦️ Weather-Based Skincare</div>
+        <div>🧴 Personalized Routine Generator</div>
+        <div>🧪 AI-Powered Skin Diagnosis</div>
+        <div>📊 PDF Reports & History Tracking</div>
+        <div>💬 Expert Chatbot Assistant</div>
+      </div>
+    </section>
+
+    <!--  Tech Stack -->
+    <section class="tech">
+      <h2>Technology Behind the App</h2>
+      <p>
+        This application is powered by a deep learning model trained on the
+        <b>HAM10000</b> dataset using <b>TensorFlow</b> and <b>Keras</b>.
+        The frontend runs on <b>HTML, CSS, and JavaScript</b>, while the backend
+        uses <b>Flask (Python)</b> for integration, image processing with
+        <b>OpenCV</b>, and report generation through <b>FPDF</b>.
+        AI chat assistance is powered via <b>OpenRouter API</b>.
+      </p>
+    </section>
+
+    <!-- 🛠️ Project Journey -->
+    <section class="journey">
+      <h2>Our Project Journey</h2>
+      <p>
+        Starting as a simple college project, AI SkinCare evolved into a fully
+        functional web app through continuous experimentation and teamwork.
+        From training models to designing an intuitive interface, each phase
+        focused on creating a user-friendly and educational experience.
+      </p>
+    </section>
+  <!--Chatbot -->
+  <div id="chatbot-widget">
+    <div id="chat-icon">💬</div>
+    <div id="chat-popup" style="display:none; flex-direction:column;">
+      <div id="chat-header">
+        AI Assistant
+        <span id="close-chat">&times;</span>
+      </div>
+      <div id="chat-box"></div>
+      <div id="chat-input">
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

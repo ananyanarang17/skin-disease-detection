@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skin Care Tips | AI Skin Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <div class="nav-left">
+        <div class="theme-toggle-wrapper">
+          <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <a href="/">Home</a>
+        <a href="/appointments">Appointments</a>
+        <a href="/clinics">Nearby Clinics</a>
+        <a href="/reports">Reports</a>
+        <a href="/tips" class="active">Skin Care Tips</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container" style="margin-top:120px;">
+    <h1>💆‍♀️ AI-Powered Skin Care Tips</h1>
+    <p class="subtitle">Your personalized skincare companion for daily wellness.</p>
+
+    <!-- 💡 Tip of the Day -->
+    <section class="tip-of-day">
+      <h2>💡 Tip of the Day</h2>
+      <p id="daily-tip">Fetching today's tip...</p>
+    </section>
+
+    <!--  Weather-Based Recommendations -->
+    <section class="weather-section">
+      <h2>🌦️ Weather-Based Advice</h2>
+      <p id="weather-info">Detecting your location...</p>
+    </section>
+
+    <!--  Skin Type Quiz -->
+    <section class="quiz-section">
+      <h2>🧬 Find Your Skin Type</h2>
+      <p>Answer a few quick questions to know your skin type.</p>
+      <form id="skin-quiz">
+        <label>How does your skin feel after washing?</label>
+        <select id="q1">
+          <option>Dry and tight</option>
+          <option>Normal and comfortable</option>
+          <option>Oily and shiny</option>
+          <option>Some areas oily, some dry</option>
+        </select>
+
+        <label>How often do you get pimples?</label>
+        <select id="q2">
+          <option>Rarely</option>
+          <option>Sometimes</option>
+          <option>Often</option>
+        </select>
+
+        <label>Do you feel any irritation or redness?</label>
+        <select id="q3">
+          <option>Never</option>
+          <option>Occasionally</option>
+          <option>Frequently</option>
+        </select>
+
+        <button type="button" id="quiz-submit">Show Result</button>
+      </form>
+
+      <p id="quiz-result" class="hidden"></p>
+    </section>
+
+    <!--  Personalized Routine Generator -->
+    <section class="routine-section">
+      <h2>🧴 Personalized Routine Generator</h2>
+      <p>Enter your skin type and get a customized morning and night routine.</p>
+      <select id="routine-skin-type">
+        <option value="dry">Dry</option>
+        <option value="oily">Oily</option>
+        <option value="combination">Combination</option>
+        <option value="sensitive">Sensitive</option>
+      </select>
+      <button id="generate-routine">Generate Routine</button>
+      <div id="routine-output"></div>
+    </section>
+  </main>
+
+  <!--  Floating Chatbot -->
+  <div id="chatbot-widget">
+    <div id="chat-icon">💬</div>
+    <div id="chat-popup">
+      <div id="chat-header">AI Skincare Expert
+        <span id="close-chat">&times;</span>
+      </div>
+      <div id="chat-box"></div>
+      <div id="chat-input">
+        <input type="text" id="user-input" placeholder="Ask skincare questions..." />
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>

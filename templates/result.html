@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Result - AI Skin Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Diagnosis Result</h1>
+
+    <img src="{{ url_for('static', filename='uploads/' + filename) }}" class="preview-img">
+
+    <div class="result-card">
+      <h3>{{ disease }}</h3>
+      <div class="bar"><div class="fill" style="width: {{ confidence }}%"></div></div>
+      <p><b>Confidence:</b> {{ confidence }}%</p>
+      <p><b>About:</b> {{ desc }}</p>
+      <p><b>Recommendation:</b> {{ tip }}</p>
+      <a href="/">Try Another Image</a> |
+      <a href="/report/{{ filename }}/{{ disease }}/{{ confidence }}">Download Report (PDF)</a>
+    </div>
+
+    <h2>📜 Recent Predictions</h2>
+    <table>
+      <tr><th>Image</th><th>Disease</th><th>Confidence</th><th>Time</th></tr>
+      {% for item in history %}
+      <tr>
+        <td>{{ item.image }}</td>
+        <td>{{ item.disease }}</td>
+        <td>{{ item.confidence }}%</td>
+        <td>{{ item.time }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Skin Disease Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  
+ 
+  <!--  header navigation -->
+  
+  <header>
+    <nav>
+      <div class="nav-left">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle-wrapper">
+          <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        
+        <!-- Navigation Links -->
+        <a href="{{ url_for('home') }}" class="active">Home</a>
+        <a href="{{ url_for('appointments') }}">Appointments</a>
+        <a href="{{ url_for('clinics') }}">Nearby Clinics</a>
+        <a href="{{ url_for('reports') }}">Reports</a>
+        <a href="{{ url_for('tips') }}">Skin Care Tips</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- AUTH BUTTON (Top Right Corner) -->
+  <div class="auth-section">
+    <button id="auth-trigger" class="btn auth-btn">Sign In / Sign Up</button>
+  </div>
+
+  <!--  AUTH MODAL  -->
+  <div id="auth-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal">&times;</span>
+      
+      <!-- SIGNUP FORM (Default View) -->
+      <form id="signup-form">
+        <h2>Create Account</h2>
+        <input 
+          type="text" 
+          id="signup-username" 
+          placeholder="Username (min 3 characters)" 
+          required
+          minlength="3"
+          autocomplete="username"
+        >
+        <input 
+          type="email" 
+          id="signup-email" 
+          placeholder="Email Address" 
+          required
+          autocomplete="email"
+        >
+        <input 
+          type="password" 
+          id="signup-password" 
+          placeholder="Password (min 6 characters)" 
+          required
+          minlength="6"
+          autocomplete="new-password"
+        >
+        <button type="submit" class="btn signup-btn">Create Account</button>
+        <p class="switch-text">
+          Already have an account? 
+          <a href="#" id="show-login">Sign In</a>
+        </p>
+      </form>
+      
+      <!--  LOGIN FORM (Hidden by Default) -->
+      <form id="login-form" style="display: none;">
+        <h2>Welcome Back</h2>
+        <input 
+          type="email" 
+          id="login-email" 
+          placeholder="Email Address" 
+          required
+          autocomplete="email"
+        >
+        <input 
+          type="password" 
+          id="login-password" 
+          placeholder="Password" 
+          required
+          autocomplete="current-password"
+        >
+        <button type="submit" class="btn login-btn">Login</button>
+        <p class="switch-text">
+          Don't have an account? 
+          <a href="#" id="show-signup">Sign Up</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!--  main content(upload section) -->
+  <main class="container">
+    <h1>🩺 AI Skin Disease Detector</h1>
+    <p class="subtitle">Upload a skin image to analyze and detect disease type.</p>
+    
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept="image/*" required>
+      <button type="submit">Analyze</button>
+    </form>
+  </main>
+
+  <!--  chatboat -->
+  <div id="chatbot-widget">
+    <div id="chat-icon">💬</div>
+    <div id="chat-popup">
+      <div id="chat-header">
+        AI Assistant
+        <span id="close-chat" style="cursor: pointer;">&times;</span>
+      </div>
+      
+      <div id="chat-box"></div>
+      
+      <div id="chat-input">
+        <input 
+          type="text" 
+          id="user-input" 
+          placeholder="Type your message..."
+          autocomplete="off"
+        >
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>
