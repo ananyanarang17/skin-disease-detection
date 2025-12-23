@@ -86,17 +86,10 @@ skin-disease-detection/
 ├── .gitignore                 # Git ignore rules
 │
 ├── static/
-│   ├── css/
 │   │   └── style.css          # Main stylesheet
-│   │
-│   ├── js/
 │   │   ├── script.js          # Core frontend logic
 │   │   └── style.js           # Toggle / UI interactions
-│   │
-│   ├── images/
 │   │   └── ananya_narang.jpg  # Author image
-│   │
-│   └── uploads/               # Runtime uploads (ignored)
 │
 ├── templates/
 │   ├── index.html
