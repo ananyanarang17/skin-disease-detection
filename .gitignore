@@ -32,3 +32,8 @@ backup_not_for_github/
 
 # Flask instance folder (local runtime data)
 instance/
+
+# Generated reports, uploads, and user data
+static/uploads/
+static/*.csv
+templates/*.pdf
