@@ -81,27 +81,29 @@ skin-disease-detection/
 │
 ├── app.py                     # Main Flask application
 ├── requirements.txt           # Python dependencies
-├── outputs.txt                # Model outputs / logs (optional)
 ├── README.md                  # Project documentation
 ├── .gitignore                 # Git ignore rules
 │
-├── static/
-│   │   └── style.css          # Main stylesheet
-│   │   ├── script.js          # Core frontend logic
-│   │   └── style.js           # Toggle / UI interactions
-│   │   └── ananya_narang.jpg  # Author image
-│
+| static/
+|  ├── style.css        # Main stylesheet
+|  ├── script.js        # Frontend logic
+|  ├── ananya_narang.jpg # Author image
+|  ├── uploads/         # Runtime uploads (ignored by git)
 ├── templates/
-│   ├── index.html
-│   ├── result.html
-│   ├── reports.html
-│   ├── chat.html
-│   ├── appointments.html
-│   ├── clinics.html
-│   ├── tips.html
-│   ├── contact.html
-│   └── about.html
-│
+│  ├── index.html
+│  ├── result.html
+│  ├── reports.html
+│  ├── chat.html
+│  ├── appointments.html
+│  ├── clinics.html
+│  ├── tips.html
+│  ├── contact.html
+│  └── about.html
+│--outputs/
+|  ├── accuracy_curve.png
+|  ├── loss_curve.png
+|  ├── confusion_matrix.png
+|  ├── classification_report.png
 └── training/
     └── train_cnn_improved.py  # Model training script
 ```
