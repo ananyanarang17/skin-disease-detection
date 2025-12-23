@@ -24,7 +24,7 @@ __pycache__/
 .DS_Store
 
 # Generated outputs & backup folders
-*.png
+static/uploads/*.png
 backup_not_for_github/
 
 # Environment variables & local secrets (CRITICAL)
