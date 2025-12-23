@@ -74,41 +74,44 @@ These metrics highlight the challenges of **imbalanced medical datasets**.
 
 ---
 
-## 📁 Repository Structure (Simplified)
+## 📁 Repository Structure
 
+```text
 skin-disease-detection/
 │
-├── app.py                         # Main Flask application
-├── requirements.txt               # Python dependencies
-├── outputs.txt                    # Model outputs / logs (optional, ignored if large)
-├── README.md                      # Project documentation
-├── .gitignore                     # Git ignore rules
+├── app.py                     # Main Flask application
+├── requirements.txt           # Python dependencies
+├── outputs.txt                # Model outputs / logs (optional)
+├── README.md                  # Project documentation
+├── .gitignore                 # Git ignore rules
 │
-│
-├   static/
-│    css/
-│  │   └── style.css              # Main stylesheet
-│  │
+├── static/
+│   ├── css/
+│   │   └── style.css          # Main stylesheet
+│   │
 │   ├── js/
-│  │   ├── script.js              # Core frontend logic
-│  │   └── style.js               # Toggle / UI interactions
-│  │
-│  │
+│   │   ├── script.js          # Core frontend logic
+│   │   └── style.js           # Toggle / UI interactions
+│   │
+│   ├── images/
+│   │   └── ananya_narang.jpg  # Author image
+│   │
+│   └── uploads/               # Runtime uploads (ignored)
 │
- ── templates/
-│  |── index.html
-│  ├── result.html
-│  ├── reports.html
-│    chat.html
-│  ├── appointments.html
-│  ├── clinics.html
-│  ├── tips.html
-│  ├── contact.html
-│  └── about.html
+├── templates/
+│   ├── index.html
+│   ├── result.html
+│   ├── reports.html
+│   ├── chat.html
+│   ├── appointments.html
+│   ├── clinics.html
+│   ├── tips.html
+│   ├── contact.html
+│   └── about.html
 │
-├── training/                      # Model training scripts
-│   ├── train_cnn_improved.py
-
+└── training/
+    └── train_cnn_improved.py  # Model training script
+```
 ---
 
 ## 📌 Notes
